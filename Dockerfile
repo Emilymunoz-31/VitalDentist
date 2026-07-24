@@ -1,15 +1,24 @@
-# 1. Imagen oficial de Tomcat 10 para Jakarta EE
-FROM tomcat:10.1-jdk17-temurin
+FROM eclipse-temurin:17-jre-jammy
+ARG GF_VERSION=7.0.21
 
-# 2. Limpiar aplicaciones por defecto para evitar conflictos
-RUN rm -rf /usr/local/tomcat/webapps/*
+RUN apt-get update && apt-get install -y wget unzip \
+    && wget -q https://download.eclipse.org/ee4j/glassfish/glassfish-${GF_VERSION}.zip -O /tmp/gf.zip \
+    && unzip -q /tmp/gf.zip -d /opt \
+    && rm /tmp/gf.zip \
+    && rm -rf /var/lib/apt/lists/*
 
-# 3. Copiar tu .war a la carpeta raíz de Tomcat
-# IMPORTANTE: Asegúrate de que el nombre PROYECTO-VITALD.war sea exacto al tuyo
-COPY ./dist/PROYECTO-VITALD.war /usr/local/tomcat/webapps/ROOT.war
+ENV GLASSFISH_HOME=/opt/glassfish7
+ENV PATH="$GLASSFISH_HOME/bin:$PATH"
 
-# 4. Exponer el puerto para Railway
+# Driver JDBC de MySQL
+ADD https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar \
+    $GLASSFISH_HOME/glassfish/domains/domain1/lib/mysql-connector-j-8.4.0.jar
+
+# Copia el WAR ya compilado (debe estar en la raíz del repo, mismo nombre exacto)
+COPY PROYECTO-VITALD.war /app.war
+
 EXPOSE 8080
 
-# 5. Iniciar el servidor
-CMD ["catalina.sh", "run"]
+CMD asadmin start-domain && \
+    asadmin deploy --contextroot / /app.war && \
+    tail -f $GLASSFISH_HOME/glassfish/domains/domain1/logs/server.log
