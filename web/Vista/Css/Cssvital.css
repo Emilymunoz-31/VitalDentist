@@ -1,0 +1,644 @@
+:root {
+    --vital-bg: #e7ecef;
+    --vital-bg-soft: #f8fbfc;
+    --vital-primary: #274c77;
+    --vital-secondary: #6096ba;
+    --vital-accent: #8ad7a2;
+    --vital-lavender: #786f9d;
+    --vital-text: #17324a;
+    --vital-muted: #64748b;
+    --vital-border: rgba(39, 76, 119, 0.14);
+}
+
+.form-label .bi {
+    color: var(--vital-secondary);
+    margin-right: 0.4rem;
+}
+
+body {
+    color: var(--vital-text);
+}
+
+.login-page,
+.registration-page,
+.appointment-page,
+.dashboard-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 86% 12%, rgba(96, 150, 186, 0.18), transparent 28rem),
+        radial-gradient(circle at 10% 85%, rgba(138, 215, 162, 0.16), transparent 22rem),
+        linear-gradient(135deg, #f8fbfc 0%, var(--vital-bg) 52%, #d7e3ea 100%);
+}
+
+.login-page,
+.registration-page,
+.appointment-page {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.login-page::before,
+.registration-page::before,
+.appointment-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='180' height='220' viewBox='0 0 180 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2385969f' stroke-opacity='.62' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M76 33c8-10 21-10 29 0 10 13 9 28 4 43-4 12-5 24-8 36-2 8-7 13-12 3-4-9-5-22-9-22s-5 13-9 22c-5 10-10 5-12-3-3-12-4-24-8-36-5-15-6-30 4-43 5-7 14-8 21 0Z'/%3E%3Cpath d='M67 35c8 8 18 8 26 0M59 54c7-7 15-8 23-3M102 52c-6-5-13-6-20-2'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 118px 144px;
+    background-position: 18px 12px;
+    opacity: 0.58;
+}
+
+.login-page::after,
+.registration-page::after,
+.appointment-page::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(248, 251, 252, 0.42), rgba(231, 236, 239, 0.36));
+}
+
+.login-page .container,
+.registration-page .container,
+.appointment-page .container,
+.registration-page main,
+.appointment-page main {
+    position: relative;
+    z-index: 1;
+}
+
+.login-page .card {
+    border: 1px solid var(--vital-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 26px 58px rgba(39, 76, 119, 0.16) !important;
+}
+
+.color-primario,
+.text-primary {
+    color: var(--vital-primary) !important;
+}
+
+.bg-primary,
+.navbar.bg-primary {
+    background: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary)) !important;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 700;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+
+.btn-primary,
+.btn-success {
+    background-image: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary), var(--vital-accent)) !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    box-shadow: 0 12px 26px rgba(39, 76, 119, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    filter: brightness(1.04);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(39, 76, 119, 0.24);
+}
+
+.btn-outline-primary {
+    color: var(--vital-primary) !important;
+    border-color: var(--vital-primary) !important;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff !important;
+    background-color: var(--vital-primary) !important;
+}
+
+.btn-outline-secondary {
+    color: var(--vital-primary);
+    border-color: rgba(39, 76, 119, 0.28);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+    transform: translateY(-1px);
+}
+
+.hover-primary:hover {
+    color: var(--vital-primary) !important;
+    text-decoration: underline !important;
+}
+
+.form-label {
+    color: #334155;
+    font-size: 0.92rem;
+}
+
+.form-control,
+.form-select {
+    border-color: #d8e2ef;
+    border-radius: 8px;
+    color: var(--vital-text);
+    min-height: 42px;
+    background-color: #ffffff;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--vital-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(96, 150, 186, 0.22);
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: rgba(37, 99, 235, 0.38);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.card-registration,
+.appointment-card,
+.card-menu,
+main .bg-white,
+form.bg-white {
+    border: 1px solid var(--vital-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 22px 50px rgba(39, 76, 119, 0.12) !important;
+}
+
+.appointment-header {
+    background: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary));
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+    padding: 22px;
+}
+
+.dashboard-sidebar {
+    min-height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #d7e3ea;
+    backdrop-filter: blur(14px);
+}
+
+.dashboard-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    color: var(--vital-text);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 4px 0;
+    transition: 0.2s ease;
+}
+
+.dashboard-nav-link:hover,
+.dashboard-nav-link.active {
+    background-color: rgba(96, 150, 186, 0.14);
+    color: var(--vital-primary) !important;
+}
+
+.accordion-button {
+    color: var(--vital-primary);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(96, 150, 186, 0.12);
+    color: var(--vital-primary);
+    box-shadow: none;
+}
+
+.card-menu {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card-menu:hover,
+.card-menu:focus {
+    transform: translateY(-5px);
+}
+
+.alert {
+    border-radius: 8px;
+    border: 0;
+}
+
+.transaction-alert {
+    border-left: 5px solid var(--vital-accent);
+    background: #ffffff;
+    color: var(--vital-text);
+    box-shadow: 0 14px 32px rgba(39, 76, 119, 0.12);
+}
+
+.transaction-alert::before {
+    content: "\2713";
+    display: inline-grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.65rem;
+    border-radius: 50%;
+    background: var(--vital-accent);
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.transaction-alert strong {
+    display: inline-block;
+    color: var(--vital-primary);
+    font-size: 1.05rem;
+}
+
+.payment-panel {
+    background: rgba(96, 150, 186, 0.08);
+    border: 1px solid rgba(96, 150, 186, 0.18);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.text-success {
+    color: var(--vital-primary) !important;
+}
+
+.bg-success,
+.navbar.bg-success,
+.bg-primary,
+.navbar.bg-primary {
+    background: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary)) !important;
+}
+
+.swal2-container.swal2-backdrop-show {
+    background: rgba(0, 0, 0, 0.42) !important;
+}
+
+.swal2-popup.vital-transaction-popup {
+    width: min(92vw, 462px) !important;
+    border-radius: 4px !important;
+    padding: 2.65rem 2rem 1.9rem !important;
+    color: #555555 !important;
+    box-shadow: 0 24px 55px rgba(23, 50, 74, 0.2) !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-icon {
+    margin: 0 auto 1.7rem !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-icon.swal2-success {
+    border-color: #dff1d4 !important;
+    color: #9bd77c !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-success-line-tip,
+.swal2-popup.vital-transaction-popup .swal2-success-line-long {
+    background-color: #9bd77c !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-success-ring {
+    border-color: rgba(155, 215, 124, 0.38) !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-title {
+    color: #555555 !important;
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    padding: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-html-container {
+    color: #5f6368 !important;
+    font-size: 1rem !important;
+    line-height: 1.42 !important;
+    margin: 0 auto 1.45rem !important;
+    max-width: 340px;
+}
+
+.swal2-popup.vital-transaction-popup .swal2-html-container strong {
+    color: #4f5358;
+    font-weight: 800;
+}
+
+.swal2-confirm.vital-confirm-button {
+    background: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary)) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 0 3px rgba(96, 150, 186, 0.22) !important;
+    font-weight: 800 !important;
+    padding: 0.74rem 1.3rem !important;
+}
+
+.admin-module-page,
+.registration-page,
+.appointment-page,
+.dashboard-page {
+    color: var(--vital-text);
+    background:
+        linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(238, 244, 251, 0.96)),
+        #eef4fb;
+}
+
+.admin-module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.35rem;
+    justify-content: flex-start;
+}
+
+.admin-eyebrow {
+    color: var(--vital-muted);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.admin-card,
+.card-registration,
+main .bg-white,
+form.bg-white,
+.table-shell {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid var(--vital-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08) !important;
+}
+
+.admin-card-header,
+.card-header.admin-card-header {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(34, 197, 94, 0.08));
+    border-bottom: 1px solid var(--vital-border);
+    color: var(--vital-secondary);
+    padding: 1rem 1.25rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #edf5f8 !important;
+    color: #274c77;
+    border-bottom: 1px solid #d7e3ea;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+.table-hover tbody tr:hover td {
+    background-color: #f0f7f4;
+}
+
+.stat-card {
+    border: 1px solid var(--vital-border);
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 1rem;
+    height: 100%;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.stat-card.compact-stat {
+    min-height: 120px;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 8px;
+    background: #edf5f8;
+    color: #274c77;
+    font-size: 1.25rem;
+}
+
+.patient-results {
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    max-height: 280px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.selected-patient-panel,
+.payment-summary-box {
+    border: 1px solid #d7e3ea;
+    border-radius: 8px;
+    background: #f8fafc;
+    padding: 1rem;
+}
+
+.admin-back-row {
+    margin-bottom: 1rem;
+}
+
+.payment-note {
+    border: 1px solid rgba(96, 150, 186, 0.22);
+    background: rgba(248, 251, 252, 0.88);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--vital-text);
+}
+
+@media (max-width: 767.98px) {
+    .admin-module-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    main.container,
+    main.container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+/* ==========================================
+   ESTILOS PROFESIONALES OTP - VITALDENTIST
+   ========================================== */
+
+.otp-wrapper-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.otp-Form {
+    width: 100%;
+    max-width: 380px; /* Tamaño elegante y profesional adaptativo */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 30px 25px;
+    gap: 18px;
+    position: relative;
+    box-shadow: 0 20px 45px rgba(39, 76, 119, 0.12);
+    border-radius: 14px;
+    border: 1px solid var(--vital-border);
+}
+
+.otp-Form .mainHeading {
+    font-size: 1.25rem;
+    color: var(--vital-primary);
+    font-weight: 800;
+}
+
+.otp-Form .otpSubheading {
+    font-size: 0.85rem;
+    color: var(--vital-muted);
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
+}
+
+.otp-Form .inputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.otp-Form .otp-input {
+    background-color: #f1f5f9;
+    width: 48px;
+    height: 52px;
+    text-align: center;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    color: var(--vital-text);
+    outline: none;
+    font-weight: 800;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+}
+
+.otp-Form .otp-input:focus {
+    background-color: #ffffff;
+    border-color: var(--vital-primary);
+    box-shadow: 0 0 0 0.2rem rgba(39, 76, 119, 0.15);
+}
+
+.otp-Form .verifyButton {
+    width: 100%;
+    height: 44px;
+    border: none;
+    background: linear-gradient(135deg, var(--vital-primary), var(--vital-secondary));
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: filter 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.otp-Form .verifyButton:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.otp-Form .exitBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #f8fafc;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #e2e8f0;
+    color: var(--vital-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.otp-Form .exitBtn:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+}
+
+.otp-Form .resendNote {
+    font-size: 0.8rem;
+    color: var(--vital-muted);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 0;
+}
+
+.otp-Form .resendBtn {
+    background-color: transparent;
+    border: none;
+    color: var(--vital-primary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0;
+}
+
+.otp-Form .resendBtn:hover {
+    text-decoration: underline;
+}
+
+/* Inputs para el Paso 2 (Nueva Contraseña) */
+.otp-Form .input-pass-vital {
+    background-color: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--vital-text);
+    width: 100%;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.otp-Form .input-pass-vital:focus {
+    background-color: #ffffff;
+    border-color: var(--vital-primary);
+    box-shadow: 0 0 0 0.2rem rgba(39, 76, 119, 0.15);
+}
+}

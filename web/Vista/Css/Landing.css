@@ -1,0 +1,258 @@
+:root {
+    --fondo-principal: #e7ecef;
+    --azul-oscuro: #274c77;
+    --azul-medio: #6096ba;
+    --verde-logo: #8ad7a2;
+    --lavanda: #786f9d;
+    --texto: #17324a;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background:
+        radial-gradient(circle at 78% 25%, rgba(120, 111, 157, 0.28), transparent 28rem),
+        radial-gradient(circle at 12% 85%, rgba(138, 215, 162, 0.24), transparent 22rem),
+        linear-gradient(135deg, #f8fbfc 0%, var(--fondo-principal) 48%, #d7e3ea 100%);
+    margin: 0;
+    color: var(--texto);
+}
+
+.z-index-10 {
+    z-index: 10;
+}
+
+.logo-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    background: var(--azul-oscuro);
+    pointer-events: none;
+    animation: introFade 1.45s ease forwards;
+}
+
+.logo-intro img {
+    width: clamp(140px, 18vw, 250px);
+    filter: drop-shadow(0 22px 38px rgba(0, 0, 0, 0.35));
+    animation: logoReveal 1.45s cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+.header-color {
+    background: rgba(39, 76, 119, 0.9);
+    border-bottom: 1px solid rgba(138, 215, 162, 0.55);
+    box-shadow: 0 16px 40px rgba(39, 76, 119, 0.16);
+    backdrop-filter: blur(18px);
+    animation: headerDrop .85s ease .9s both;
+}
+
+.brand-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+}
+
+.brand-name {
+    letter-spacing: 0;
+}
+
+.footer-color {
+    background: var(--azul-oscuro);
+}
+
+.marquee-background {
+    position: absolute;
+    top: 46%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.marquee-content {
+    display: inline-block;
+    font-size: clamp(5rem, 15vw, 14rem);
+    font-weight: 900;
+    color: var(--azul-medio);
+    opacity: 0.11;
+    animation: scrollText 32s linear infinite;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.landing-main {
+    min-height: calc(100vh - 156px);
+    padding: clamp(2rem, 5vw, 4.5rem) 0;
+}
+
+.landing-kicker {
+    color: var(--azul-medio);
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    animation: riseIn .8s ease 1.12s both;
+}
+
+.landing-title {
+    color: var(--azul-oscuro);
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: 0;
+    text-shadow: 0 16px 35px rgba(39, 76, 119, 0.14);
+    animation: riseIn .8s ease 1.2s both;
+}
+
+.landing-copy {
+    max-width: 32rem;
+    color: rgba(23, 50, 74, 0.78);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.6;
+    animation: riseIn .8s ease 1.28s both;
+}
+
+.implant-wrapper {
+    position: relative;
+    isolation: isolate;
+    animation: riseIn .95s ease 1s both;
+}
+
+.implant-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 12% 5% 4%;
+    z-index: -1;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(39, 76, 119, 0.18), rgba(138, 215, 162, 0.22));
+    filter: blur(26px);
+    transform: rotate(-6deg);
+}
+
+.implant-giant {
+    width: min(100%, 760px);
+    max-height: 54vh;
+    object-fit: contain;
+    filter: drop-shadow(0 28px 42px rgba(39, 76, 119, 0.24));
+    animation: float 5.4s ease-in-out infinite;
+}
+
+.btn-gradient {
+    border: none;
+    color: #fff !important;
+    background-image: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio), var(--verde-logo));
+    border-radius: 999px;
+    background-size: 180% auto;
+    font-family: inherit;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    font-weight: 900;
+    padding: 0.9rem 2.15rem;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 18px 35px rgba(39, 76, 119, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.25s ease;
+    animation: riseIn .8s ease 1.36s both;
+}
+
+.btn-gradient:hover {
+    background-position: right center;
+    box-shadow: 0 22px 42px rgba(39, 76, 119, 0.28);
+    transform: translateY(-3px);
+}
+
+.btn-gradient:focus-visible {
+    outline: 4px solid rgba(138, 215, 162, 0.55);
+    outline-offset: 5px;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes introFade {
+    0%, 68% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes logoReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.86);
+    }
+    28% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50vw + 74px), calc(-50vh + 74px)) scale(0.28);
+    }
+}
+
+@keyframes headerDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .landing-main {
+        text-align: center;
+    }
+
+    .landing-copy {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .implant-giant {
+        max-height: 42vh;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .brand-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .brand-name {
+        font-size: 1.35rem !important;
+    }
+
+    .implant-giant {
+        max-height: 20vh;
+    }
+
+    .footer-color {
+        font-size: 0.78rem;
+    }
+}
