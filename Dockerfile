@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jre-jammy
+FROM eclipse-temurin:17-jdk-jammy
 ARG GF_VERSION=7.0.21
 
 RUN apt-get update && apt-get install -y wget unzip \
@@ -10,11 +10,9 @@ RUN apt-get update && apt-get install -y wget unzip \
 ENV GLASSFISH_HOME=/opt/glassfish7
 ENV PATH="$GLASSFISH_HOME/bin:$PATH"
 
-# Driver JDBC de MySQL
 ADD https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar \
     $GLASSFISH_HOME/glassfish/domains/domain1/lib/mysql-connector-j-8.4.0.jar
 
-# Copia el WAR ya compilado (debe estar en la raíz del repo, mismo nombre exacto)
 COPY PROYECTO-VITALD.war /app.war
 
 EXPOSE 8080
