@@ -17,6 +17,9 @@ COPY PROYECTO-VITALD.war /app.war
 
 EXPOSE 8080
 
-CMD asadmin start-domain && \
+CMD ["/bin/sh", "-c", "\
+    asadmin start-domain && \
+    asadmin set server-config.network-config.network-listeners.network-listener.http-listener-1.address=0.0.0.0 && \
     asadmin deploy --contextroot / /app.war && \
-    tail -f $GLASSFISH_HOME/glassfish/domains/domain1/logs/server.log
+    tail -f $GLASSFISH_HOME/glassfish/domains/domain1/logs/server.log \
+"]
